@@ -2208,11 +2208,11 @@ jarilo =
 jelly =
   { src.git =
       { repo = "https://github.com/yukikurage/purescript-jelly.git";
-        rev = "234a616f952f18b37370cc84dd288b8615b83918";
+        rev = "2b7876c9d06bb46b51f488421dbedca5ea060de3";
       };
 
     info =
-      { version = "0.5.0";
+      { version = "0.6.1";
 
         dependencies =
           [ aff affjax affjax-web arrays console effect either foreign foreign-object free js-timers maybe newtype node-buffer node-child-process node-fs node-fs-aff node-streams parallel posix-types prelude record refs simple-json strings tailrec transformers tuples web-dom web-events web-html web-uievents 
