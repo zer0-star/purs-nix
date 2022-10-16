@@ -2215,8 +2215,7 @@ jelly =
       { version = "0.6.1";
 
         dependencies =
-          [ aff affjax affjax-web arrays console effect either foreign foreign-object free js-timers maybe newtype node-buffer node-child-process node-fs node-fs-aff node-streams parallel posix-types prelude record refs simple-json strings tailrec transformers tuples web-dom web-events web-html web-uievents 
-          ];
+          [ aff arrays console effect either foreign free js-timers maybe newtype prelude record refs strings tailrec transformers tuples unordered-collections web-dom web-events web-html ];
       };
   };
 
