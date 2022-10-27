@@ -633,11 +633,11 @@ codec =
 codec-argonaut =
   { src.git =
       { repo = "https://github.com/garyb/purescript-codec-argonaut.git";
-        rev = "023f599ba48f0c91011b9038f837923ee0586ffc";
+        rev = "17a24461e3b9f9aead1873e74913d737d24a8278";
       };
 
     info =
-      { version = "9.1.0";
+      { version = "9.2.0";
 
         dependencies =
           [ argonaut-core codec ordered-collections type-equality variant 
@@ -1098,11 +1098,11 @@ elmish-enzyme =
 elmish-hooks =
   { src.git =
       { repo = "https://github.com/collegevine/purescript-elmish-hooks.git";
-        rev = "37aa32b3e736c592f610751bba073c1a900439b0";
+        rev = "c629812a86112d80f9063902dc801a714b69bc3f";
       };
 
     info =
-      { version = "0.8.2";
+      { version = "0.8.3";
 
         dependencies =
           [ aff debug elmish maybe prelude tuples undefined-is-not-a-problem 
@@ -2163,14 +2163,14 @@ integers =
 interpolate =
   { src.git =
       { repo = "https://github.com/jordanmartinez/purescript-interpolate.git";
-        rev = "16df04bbdf709fd93aae885ecd6330f4975837a7";
+        rev = "e5994500999b9f194c1d8ec17854d3f61f3cb3eb";
       };
 
     info =
-      { version = "5.0.0";
+      { version = "5.0.2";
 
         dependencies =
-          [ prelude 
+          [ partial prelude 
           ];
       };
   };
@@ -2208,14 +2208,15 @@ jarilo =
 jelly =
   { src.git =
       { repo = "https://github.com/yukikurage/purescript-jelly.git";
-        rev = "2b7876c9d06bb46b51f488421dbedca5ea060de3";
+        rev = "5d21468a1e22958f27397685bf92b5de4f2c0745";
       };
 
     info =
-      { version = "0.6.1";
+      { version = "0.7.0";
 
         dependencies =
-          [ aff arrays console effect either foreign free js-timers maybe newtype prelude record refs strings tailrec transformers tuples unordered-collections web-dom web-events web-html ];
+          [ aff arrays console effect either foldable-traversable foreign free js-timers maybe newtype prelude record refs strings tailrec transformers tuples typelevel-prelude unordered-collections web-dom web-events web-html 
+          ];
       };
   };
 
@@ -2230,6 +2231,21 @@ jest =
 
         dependencies =
           [ aff aff-promise effect prelude 
+          ];
+      };
+  };
+
+js-bigints =
+  { src.git =
+      { repo = "https://github.com/sigma-andex/purescript-js-bigints.git";
+        rev = "478110d8bd94d2c31c19cf4dd100464dcbd1f191";
+      };
+
+    info =
+      { version = "1.2.0";
+
+        dependencies =
+          [ aff effect maybe prelude 
           ];
       };
   };
@@ -2579,6 +2595,21 @@ media-types =
       };
   };
 
+metadata =
+  { src.git =
+      { repo = "https://github.com/purescript/purescript-metadata.git";
+        rev = "6529ece5167934712454d9b5d9814b3e663a2c85";
+      };
+
+    info =
+      { version = "0.15.4";
+
+        dependencies =
+          [ 
+          ];
+      };
+  };
+
 midi =
   { src.git =
       { repo = "https://github.com/newlandsvalley/purescript-midi.git";
@@ -2834,6 +2865,21 @@ newtype =
       };
   };
 
+nextui =
+  { src.git =
+      { repo = "https://github.com/rowtype-yoga/purescript-nextui.git";
+        rev = "146eaa04bdc9057e4a8b755f9ef12d7057014c79";
+      };
+
+    info =
+      { version = "0.1.0";
+
+        dependencies =
+          [ effect prelude react-basic-hooks 
+          ];
+      };
+  };
+
 node-buffer =
   { src.git =
       { repo = "https://github.com/purescript-node/purescript-node-buffer.git";
@@ -2882,11 +2928,11 @@ node-child-process =
 node-fs =
   { src.git =
       { repo = "https://github.com/purescript-node/purescript-node-fs.git";
-        rev = "2629cb37c7a6987ed95401d55b64871b93a31c3e";
+        rev = "a9da8b9860f8a1f67e38701f5cce72a0f2c3901d";
       };
 
     info =
-      { version = "8.1.0";
+      { version = "8.1.1";
 
         dependencies =
           [ datetime effect either enums exceptions functions integers js-date maybe node-buffer node-path node-streams nullable partial prelude strings unsafe-coerce 
@@ -3842,11 +3888,11 @@ react-basic-emotion =
 react-basic-hooks =
   { src.git =
       { repo = "https://github.com/megamaddu/purescript-react-basic-hooks.git";
-        rev = "50575f50a68dc8b756b378674dea5c568b8c109d";
+        rev = "d637dd6595f0c91b62be32bf67396a635bfff984";
       };
 
     info =
-      { version = "8.0.0";
+      { version = "8.1.2";
 
         dependencies =
           [ aff aff-promise bifunctors console control datetime effect either exceptions foldable-traversable functions indexed-monad integers maybe newtype now nullable ordered-collections prelude react-basic refs tuples type-equality unsafe-coerce unsafe-reference web-html 
@@ -4274,6 +4320,21 @@ slug =
       };
   };
 
+small-ffi =
+  { src.git =
+      { repo = "https://github.com/lfarroco/purescript-small-ffi.git";
+        rev = "ca1039b30e32458e5dc39ac892091201ffdd34e5";
+      };
+
+    info =
+      { version = "4.0.1";
+
+        dependencies =
+          [ arrays console effect prelude quickcheck 
+          ];
+      };
+  };
+
 soundfonts =
   { src.git =
       { repo = "https://github.com/newlandsvalley/purescript-soundfonts.git";
@@ -4322,11 +4383,11 @@ sparse-polynomials =
 spec =
   { src.git =
       { repo = "https://github.com/purescript-spec/purescript-spec.git";
-        rev = "07e5e0efb0286853d56dbcddbbf27a9f6a2788ec";
+        rev = "51c0039eca7fe0633f16f55342551e783db65b3c";
       };
 
     info =
-      { version = "7.0.0";
+      { version = "7.1.0";
 
         dependencies =
           [ aff ansi avar console exceptions foldable-traversable fork now pipes prelude strings transformers 
@@ -4585,6 +4646,21 @@ tecton =
 
         dependencies =
           [ arrays colors either foldable-traversable integers lists numbers prelude record strings transformers tuples 
+          ];
+      };
+  };
+
+tecton-halogen =
+  { src.git =
+      { repo = "https://github.com/nsaunders/purescript-tecton-halogen.git";
+        rev = "180fa9aa00aedfac58506d9f774016532bab3c8a";
+      };
+
+    info =
+      { version = "0.1.0";
+
+        dependencies =
+          [ halogen media-types prelude record tecton transformers typelevel-prelude 
           ];
       };
   };
@@ -5024,6 +5100,21 @@ uuid =
       };
   };
 
+uuidv4 =
+  { src.git =
+      { repo = "https://github.com/garyb/purescript-uuidv4.git";
+        rev = "f012a45e01a981ec7d0130b729a82b7f4cb45e39";
+      };
+
+    info =
+      { version = "1.0.0";
+
+        dependencies =
+          [ prelude random strings 
+          ];
+      };
+  };
+
 validation =
   { src.git =
       { repo = "https://github.com/purescript/purescript-validation.git";
@@ -5432,14 +5523,14 @@ yoga-fetch =
 yoga-json =
   { src.git =
       { repo = "https://github.com/rowtype-yoga/purescript-yoga-json.git";
-        rev = "3ede0d1c49ee2e7c854a0ff86b7028885cbee31c";
+        rev = "1d462510e6b8b52faeae2711dbfd6ecca6122e13";
       };
 
     info =
-      { version = "3.0.2";
+      { version = "4.0.1";
 
         dependencies =
-          [ arrays bifunctors bigints control effect either exceptions foldable-traversable foreign foreign-object identity js-date lists maybe nullable partial prelude record transformers typelevel-prelude variant 
+          [ arrays bifunctors control datetime effect either exceptions foldable-traversable foreign foreign-object identity integers js-bigints js-date lists maybe newtype nullable numbers ordered-collections partial prelude record transformers tuples typelevel-prelude unsafe-coerce variant 
           ];
       };
   };

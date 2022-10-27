@@ -24,8 +24,41 @@
 
         systems = [ "x86_64-linux" ];
       }
-      ({ make-shell, pkgs, ps-tools, purs-nix, ... }:
+      ({ make-shell, pkgs, ps-tools, system, ... }:
          let
+           purs-nix =
+             purs-nix-flake
+               { inherit system;
+
+                 overlays =
+                   [ (_: super: assert !super?test-package; {})
+
+                     (self: super:
+                        with self;
+                        { inherit (super) console;
+
+                          effect =
+                            { src.path = purs-nix-test-packages;
+                              info = /effect/package.nix;
+                            };
+
+                          # testing overlay precedence
+                          murmur3 = prelude;
+
+                          # test if later overlays have access to this package
+                          test-package = prelude;
+                        }
+                     )
+
+                     (self: super:
+                        with self;
+                        { murmur3 = self."ursi.murmur3";
+                          "test.prelude" = super.test-package;
+                        }
+                     )
+                   ];
+               };
+
            minimal = false;
 
            switches =
@@ -38,7 +71,7 @@
 
            l = p.lib; p = pkgs;
            inherit (purs-nix) ps-pkgs ps-pkgs-ns purs;
-           package = import ./package.nix purs-nix-test-packages purs-nix;
+           package = import ./package.nix purs-nix;
 
            ps-custom = { dir ? ./., ...}@args:
              purs
@@ -67,12 +100,12 @@
            ps2 =
              purs
                { dependencies =
-                   let inherit (ps-pkgs-ns) ursi; in
+                   let inherit (ps-pkgs-ns) test; in
                    with ps-pkgs;
                    [ console
                      effect
-                     prelude
-                     ursi.murmur3
+                     murmur3
+                     test.prelude
                    ];
 
                   test-dependencies = [ ps-pkgs."assert" ];
@@ -97,7 +130,7 @@
                ({ inherit l p switches;
                   inherit (purs-nix-flake.inputs.parsec.lib) parsec;
                 }
-                // purs-nix
+                // (purs-nix-flake { inherit system; })
                );
 
            expected-output-tail =
@@ -342,7 +375,7 @@
                                 "${command} packages"
                                 (i: ''
                                     packages="arraybuffer-types: 3.0.2
-                                    arrays: 7.0.0
+                                    arrays: 7.1.0
                                     assert: 6.0.0
                                     bifunctors: 6.0.0
                                     console: 6.0.0
@@ -381,8 +414,8 @@
                                     purs-nix.is-odd: 1.0.0
                                     refs: 6.0.0
                                     safe-coerce: 2.0.0
-                                    st: 6.0.0
-                                    tailrec: 6.0.0
+                                    st: 6.2.0
+                                    tailrec: 6.1.0
                                     tuples: 7.0.0
                                     type-equality: 4.0.1
                                     typelevel-prelude: 7.0.0
